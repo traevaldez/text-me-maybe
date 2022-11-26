@@ -1,15 +1,15 @@
 {
   "name": "JATE",
   "version": "1.0.0",
-  "description": "",
+  "description": "Just Another Text Editor",
   "main": "server.js",
   "scripts": {
-    "start:dev": "",
-    "start": "",
-    "server": "",
-    "build": "",
-    "install": "",
-    "client": ""
+    "start:dev": "concurrently \"cd server && npm run server\" \"cd client && npm run dev\"",
+    "start": "npm run build && cd server && node server.js",
+    "server": "cd server nodemon server.js --ignore client",
+    "build": "cd client && npm run build",
+    "install": "cd client && npm install",
+    "client": "cd client && npm start"
   },
   "keywords": [],
   "author": "",
@@ -22,10 +22,6 @@
   },
   "devDependencies": {
     "concurrently": "^5.2.0",
-    "css-loader": "^6.7.2",
-    "nodemon": "^2.0.20",
-    "webpack": "^5.75.0",
-    "webpack-dev-server": "^4.11.1",
-    "webpack-pwa-manifest": "^4.3.0"
+    "nodemon": "^2.0.20"
   }
 }
